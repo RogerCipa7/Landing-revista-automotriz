@@ -1,178 +1,227 @@
-```markdown
-# 🚗 Revista Automotriz 2025
+<div align="center">
 
-Landing page editorial de alto impacto para una revista automotriz digital.  
-Catálogo interactivo, modal dinámico, animaciones fluidas y diseño dark/light totalmente responsive.
+```
+██████╗ ███████╗██╗   ██╗██╗███████╗████████╗ █████╗     ██████╗  ██████╗ ██████╗ ███████╗
+██╔══██╗██╔════╝██║   ██║██║██╔════╝╚══██╔══╝██╔══██╗    ╚════██╗██╔═████╗╚════██╗██╔════╝
+██████╔╝█████╗  ██║   ██║██║███████╗   ██║   ███████║     █████╔╝██║██╔██║ █████╔╝███████╗
+██╔══██╗██╔══╝  ╚██╗ ██╔╝██║╚════██║   ██║   ██╔══██║    ██╔═══╝ ████╔╝██║██╔═══╝ ╚════██║
+██║  ██║███████╗ ╚████╔╝ ██║███████║   ██║   ██║  ██║    ███████╗╚██████╔╝███████╗███████║
+╚═╝  ╚═╝╚══════╝  ╚═══╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝    ╚══════╝ ╚═════╝ ╚══════╝╚══════╝
+```
 
-🔗 **Ver proyecto en producción:**  
-👉 [https://landing-revista-automotriz-48mj3ttm2-rogercipagautas-projects.vercel.app](https://landing-revista-automotriz-48mj3ttm2-rogercipagautas-projects.vercel.app)
+### *Editorial automotriz digital de alto impacto — 2025*
 
----
+<br/>
 
-## ✨ Visión del Proyecto
+[![Ver en producción](https://img.shields.io/badge/🚀%20VER%20EN%20PRODUCCIÓN-FF3D00?style=for-the-badge&logoColor=white)](https://landing-revista-automotriz-48mj3ttm2-rogercipagautas-projects.vercel.app)
+&nbsp;
+[![Astro](https://img.shields.io/badge/Astro%204.16-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build)
+&nbsp;
+[![Tailwind](https://img.shields.io/badge/Tailwind%203.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+&nbsp;
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 
-Este proyecto simula la landing oficial de una revista automotriz moderna para 2025, enfocada en:
+<br/>
 
-- Experiencia visual editorial
-- Interacción fluida sin frameworks pesados en el cliente
-- Accesibilidad real
-- Arquitectura modular escalable
-- Rendimiento optimizado con Astro
+![Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solar.png)
 
-El objetivo es demostrar dominio en maquetación avanzada, UX interactiva y arquitectura limpia de componentes.
+</div>
 
----
+<br/>
 
-## 🚀 Características Principales
+## 〔 Visión del Proyecto 〕
+
+> *Simula la landing oficial de una revista automotriz de clase mundial, construida sin frameworks pesados en cliente. Cada pixel pensado. Cada interacción justificada.*
+
+Este proyecto demuestra dominio de **maquetación editorial avanzada**, **UX interactiva nativa** y **arquitectura limpia de componentes** con Astro como motor de rendimiento.
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  ⚡ Rendimiento    →  Optimizado con Astro Island Architecture   │
+│  ♿ Accesibilidad  →  Navegación full teclado + ARIA             │
+│  📐 Arquitectura  →  Componentes modulares y escalables          │
+│  🎨 Diseño        →  Dark/Light, totalmente responsive           │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+<br/>
+
+![Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solar.png)
+
+## 〔 Features 〕
+
+<table>
+<tr>
+<td width="50%">
 
 ### 🧭 Navegación Inteligente
-- Header fijo con efecto blur
-- Drawer móvil animado
-- Restauración correcta del scroll en navegación móvil
-- Accesibilidad con navegación por teclado
+- Header fijo con efecto **blur backdrop**
+- Drawer móvil con animación suave
+- Restauración correcta del scroll en mobile
+- Navegación completa por teclado
 
 ### 🖼️ Hero Cinematográfico
-- Imagen full-screen con overlay degradado
+- Full-screen con **overlay degradado**
 - Animaciones escalonadas con CSS custom properties
 - Estadísticas flotantes en desktop
 
-### 🔄 Carrusel Dinámico de Modelos
-- 18 vehículos reales
+### 🔄 Carrusel de Modelos
+- **18 vehículos** con datos reales
 - Scroll suave con cálculo dinámico de ancho
-- Dots interactivos
-- Progress bar animado
-- Navegación por teclado
+- Dots interactivos + progress bar animado
+- Soporte teclado ← →
+
+</td>
+<td width="50%">
 
 ### 🗂️ Catálogo Editorial Dark
-- Card principal destacada
-- Grid adaptable 4 columnas (XL)
-- Efectos hover con iluminación de borde
-- Modal desacoplado mediante CustomEvent
+- Card principal destacada (hero card)
+- Grid adaptable hasta **4 columnas XL**
+- Hover con iluminación de borde
+- Modal desacoplado vía `CustomEvent`
 
 ### 🪟 Modal de Detalles
-- Overlay independiente del z-index del nav
-- Cierre por ESC, overlay o botón X
-- Botón condicional para review en YouTube
-- Especificaciones técnicas estructuradas
+- Overlay con z-index independiente del nav
+- Cierre por `ESC`, click externo o botón ✕
+- Review embebida desde **YouTube**
+- Specs técnicas estructuradas
 
 ### 🎯 Acordeón Interactivo
-- Desktop: hover dinámico
-- Mobile: acordeón táctil
-- Animación tipo spring con cubic-bezier
+- Desktop: expansión por **hover**
+- Mobile: toggle táctil
+- Animación spring `cubic-bezier`
 - Imagen + estadísticas por feature
 
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="50%">
+
 ### 📰 Sección Editorial
-- Artículo principal protagonista
-- Layout alternado
+- Artículo protagonista full-width
+- Layout **alternado** izquierda/derecha
 - Gradientes laterales integrados
-- Tags y metadatos de lectura
+- Tags + tiempo de lectura estimado
 
-### 📬 Footer Funcional
-- Validación en tiempo real
-- Spinner de carga
-- Feedback visual automático
-- Enlaces reales a redes del autor
+</td>
+<td width="50%">
 
----
+### 📬 Footer con Newsletter
+- Validación en **tiempo real**
+- Spinner de carga + feedback visual
+- Links reales a redes del autor
 
-## 🛠️ Stack Tecnológico
+</td>
+</tr>
+</table>
+
+<br/>
+
+![Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solar.png)
+
+## 〔 Stack Tecnológico 〕
+
+<div align="center">
+
+| Capa | Tecnología | Versión |
+|:----:|-----------|:-------:|
+| 🚀 **Framework** | Astro | `4.16` |
+| 🎨 **Estilos** | Tailwind CSS | `3.4` |
+| 🔷 **Lenguaje** | TypeScript | `5.x` |
+| ✨ **Animaciones** | CSS Transitions + Custom Properties | — |
+| 🖼️ **Iconos** | Heroicons (SVG inline) | — |
+| 🔤 **Tipografía** | Playfair Display + Barlow | — |
+
+</div>
+
+<br/>
 
 ```json
 {
-  "framework": "Astro 4.16",
-  "styling": "Tailwind CSS 3.4",
-  "language": "TypeScript",
-  "animations": "CSS + Transitions",
-  "icons": "Heroicons (SVG inline)",
-  "fonts": "Playfair Display + Barlow"
+  "framework":   "Astro 4.16",
+  "styling":     "Tailwind CSS 3.4",
+  "language":    "TypeScript",
+  "animations":  "CSS + Transitions",
+  "icons":       "Heroicons (SVG inline)",
+  "fonts":       "Playfair Display + Barlow"
 }
 ```
 
-### Dependencias principales
+<br/>
+
+![Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solar.png)
+
+## 〔 Inicio Rápido 〕
 
 ```bash
-npm install astro@^4.16.0
-npm install -D tailwindcss@^3.4.17 @astrojs/tailwind@^5.1.2
-npm install -D @tailwindcss/forms @tailwindcss/typography
+# Clonar el repositorio
+git clone https://github.com/rogercipagauta/revista-automotriz-2025.git
+
+# Instalar dependencias
+cd revista-automotriz-2025
+npm install
+
+# Levantar en desarrollo
+npm run dev
+
+# Build de producción
+npm run build
 ```
 
----
+> El proyecto corre en `http://localhost:4321` por defecto.
 
-## 📁 Arquitectura del Proyecto
+<br/>
+
+![Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solar.png)
+
+## 〔 Estructura del Proyecto 〕
 
 ```
-revista-automotriz/
-├── public/
-├── src/
-│   ├── components/
-│   │   ├── Nav.astro
+📁 revista-automotriz-2025/
+├── 📁 src/
+│   ├── 📁 components/        ← Componentes Astro modulares
+│   │   ├── Header.astro
 │   │   ├── Hero.astro
-│   │   ├── Modelos.astro
-│   │   ├── Catalogo.astro
-│   │   ├── VehicleDetailModal.astro
-│   │   ├── Caracteristicas.astro
-│   │   ├── Noticias.astro
+│   │   ├── Carousel.astro
+│   │   ├── Catalog.astro
+│   │   ├── Modal.astro
+│   │   ├── Accordion.astro
+│   │   ├── Editorial.astro
 │   │   └── Footer.astro
-│   ├── layouts/
-│   └── pages/
+│   ├── 📁 layouts/           ← Layout base
+│   ├── 📁 pages/             ← Rutas Astro
+│   └── 📁 styles/            ← CSS global
+├── 📁 public/                ← Assets estáticos
 ├── astro.config.mjs
-├── tailwind.config.mjs
+├── tailwind.config.cjs
 └── tsconfig.json
 ```
 
-Arquitectura desacoplada, modular y escalable. Cada sección funciona como bloque independiente.
+<br/>
 
----
+![Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solar.png)
 
-## ⚙️ Instalación
+## 〔 Autor 〕
 
-```bash
-git clone https://github.com/rogercipa7/revista-automotriz.git
-cd revista-automotriz
-npm install
-npm run dev
-```
+<div align="center">
 
-### Producción
+**Roger Cipagauta**
 
-```bash
-npm run build
-npm run preview
-```
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/rogercipagauta)
+&nbsp;
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rogercipagauta)
 
----
+<br/>
 
-## 📱 Responsive Design
+*Construido con 🔥 y mucha gasolina*
 
-| Resolución  | Comportamiento |
-|-------------|----------------|
-| < 640px     | Drawer móvil, cards apiladas, modal full-screen |
-| 640–1023px  | 2 columnas, carrusel optimizado |
-| ≥ 1024px    | Layout editorial completo, hover interactivo |
+<br/>
 
----
+![Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solar.png)
 
-## 🎨 Personalización
+<sub>© 2025 Roger Cipagauta — Todos los derechos reservados</sub>
 
-- Cambiar colores en `tailwind.config.mjs`
-- Agregar nuevos vehículos en `Catalogo.astro`
-
-La arquitectura está pensada para escalar sin romper estilos existentes.
-
----
-
-## 👨‍💻 Autor
-
-**Roger Cipagauta**  
-Desarrollador Full Stack enfocado en experiencias web modernas, UI interactiva y performance.
-
-- [LinkedIn](https://www.linkedin.com/in/roger-cipagauta/)  
-- [GitHub](https://github.com/rogercipa7)  
-- [Email](mailto:roger.cipagauta@example.com)
-
----
-
-## 📄 Licencia
-
-MIT License — 2025 Roger Cipagauta
-```
+</div>
