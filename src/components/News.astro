@@ -1,0 +1,126 @@
+---
+const news = [
+  {
+    category: 'Movilidad Eléctrica',
+    title: 'El Futuro de la Movilidad Eléctrica',
+    excerpt: 'Los nuevos modelos eléctricos están revolucionando la industria automotriz con autonomías superiores a 600 kilómetros y tiempos de carga reducidos a menos de 20 minutos. Los fabricantes están invirtiendo miles de millones en el desarrollo de baterías de estado sólido, que prometen duplicar la densidad energética y reducir aún más los tiempos de carga, haciendo que los vehículos eléctricos sean tan prácticos como los de combustión.',
+    author: 'Carlos Mendoza',
+    role: 'Editor Automotriz',
+    date: '15 Enero 2025',
+    image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1200&q=85'
+  },
+  {
+    category: 'Tecnología',
+    title: 'Tecnología de Conducción Autónoma',
+    excerpt: 'Los sistemas de asistencia al conductor nivel 3 ya están disponibles en varios modelos, permitiendo una conducción semi-autónoma en autopistas. Sin embargo, los expertos advierten que la transición a niveles 4 y 5 requerirá no solo avances tecnológicos, sino también cambios en la legislación y la infraestructura vial. Empresas como Tesla, Waymo y Mobileye compiten por liderar este mercado que promete reducir drásticamente los accidentes de tráfico.',
+    author: 'María González',
+    role: 'Especialista en Tecnología',
+    date: '12 Enero 2025',
+    image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1200&q=85'
+  },
+  {
+    category: 'Diseño',
+    title: 'Diseño y Aerodinámica del Futuro',
+    excerpt: 'Las nuevas tendencias en diseño automotriz combinan estética vanguardista con coeficientes aerodinámicos nunca antes vistos. Los diseñadores están adoptando líneas más limpias, superficies esculpidas y detalles que mejoran la eficiencia sin sacrificar la belleza. Además, la iluminación matricial y las cámaras en lugar de retrovisores se están convirtiendo en el estándar en los modelos más exclusivos, marcando el camino hacia una nueva era en la estética del automóvil.',
+    author: 'Roberto Silva',
+    role: 'Crítico de Diseño',
+    date: '10 Enero 2025',
+    image: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1200&q=85'
+  }
+];
+---
+
+<section id="noticias" class="py-28 bg-gray-50 w-full">
+  <div class="w-full px-6 lg:px-12 xl:px-24">
+
+    {/* Header */}
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-20">
+      <div>
+        <p class="text-red-600 text-xs font-bold uppercase tracking-[0.25em] mb-3">— Últimas novedades</p>
+        <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-none">
+          ÚLTIMAS <span class="text-red-600">NOTICIAS</span>
+        </h2>
+      </div>
+      <p class="text-gray-500 text-sm max-w-xs leading-relaxed sm:text-right">
+        Mantente informado sobre las últimas tendencias y novedades del mundo automotriz.
+      </p>
+    </div>
+
+    {/* Articles */}
+    <div class="space-y-6 lg:space-y-8">
+      {news.map((item, index) => (
+        <article class={`news-card group flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-500`} style={`--i:${index}`}>
+
+          {/* Imagen */}
+          <div class="lg:w-[52%] overflow-hidden relative">
+            <img
+              src={item.image}
+              alt={item.title}
+              class="w-full h-64 sm:h-80 lg:h-full min-h-[360px] object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+              loading="lazy"
+            />
+            {/* Category pill encima de la imagen */}
+            <span class="absolute top-5 left-5 inline-flex items-center gap-1.5 px-3 py-1.5 bg-black/70 backdrop-blur-sm text-white text-xs font-semibold uppercase tracking-widest rounded-full">
+              <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+              {item.category}
+            </span>
+          </div>
+
+          {/* Contenido */}
+          <div class={`lg:w-[48%] flex flex-col justify-between p-8 lg:p-12 ${index % 2 === 0 ? '' : ''}`}>
+
+            {/* Top: número de artículo (sin flecha) */}
+            <div class="flex items-center justify-between mb-8">
+              <span class="font-serif text-7xl font-black text-gray-100 leading-none select-none">
+                0{index + 1}
+              </span>
+              {/* Flecha eliminada */}
+            </div>
+
+            {/* Título */}
+            <div class="flex-1">
+              <h3 class="font-serif text-2xl sm:text-3xl lg:text-[2rem] font-black text-gray-900 leading-tight mb-5 group-hover:text-red-700 transition-colors duration-300">
+                {item.title}
+              </h3>
+              <p class="text-gray-500 leading-relaxed text-sm lg:text-base">
+                {item.excerpt}
+              </p>
+            </div>
+
+            {/* Divisor */}
+            <div class="my-8 flex items-center gap-4">
+              <div class="w-10 h-px bg-red-500"></div>
+              <div class="flex-1 h-px bg-gray-100"></div>
+            </div>
+
+            {/* Autor */}
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gray-800 to-gray-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                {item.author.split(' ').map((n: string) => n[0]).join('').slice(0, 2)}
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="font-semibold text-gray-900 text-sm truncate">{item.author}</p>
+                <p class="text-xs text-gray-400">{item.role}</p>
+              </div>
+              <span class="text-xs text-gray-400 whitespace-nowrap">{item.date}</span>
+            </div>
+
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .news-card {
+    opacity: 0;
+    animation: fadeUp 0.65s ease-out calc(var(--i, 0) * 150ms) forwards;
+  }
+</style>

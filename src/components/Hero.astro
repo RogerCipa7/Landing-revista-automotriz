@@ -1,0 +1,108 @@
+---
+const heroContent = {
+  image: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1920&q=90',
+  title: 'EL FUTURO SOBRE RUEDAS',
+  subtitle: 'Descubre innovación, velocidad y diseño en un solo lugar.'
+};
+---
+
+<section id="inicio" class="relative min-h-screen flex items-center overflow-hidden">
+
+  {/* ── Imagen de fondo full-width ── */}
+  <div class="absolute inset-0 z-0">
+    <img
+      src={heroContent.image}
+      alt="Hero background"
+      class="w-full h-full object-cover object-center"
+      loading="eager"
+    />
+    {/* Overlay degradado para legibilidad del texto */}
+    <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20"></div>
+    {/* Overlay inferior para suavizar el corte */}
+    <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black/60 to-transparent"></div>
+  </div>
+
+  {/* ── Contenido ── */}
+  <div class="relative z-10 w-full px-6 lg:px-12 xl:px-24 py-32 lg:py-0 lg:min-h-screen lg:flex lg:items-center">
+    <div class="max-w-3xl">
+
+      {/* Badge */}
+      <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-red-600/15 border border-red-500/40 mb-8 backdrop-blur-sm hero-item" style="--i:0">
+        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+        <span class="text-red-400 text-xs font-semibold uppercase tracking-widest">Edición 2025</span>
+      </div>
+
+      {/* Título */}
+      <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight leading-[0.95] hero-item" style="--i:1">
+        {heroContent.title.split(' ').map((word) => (
+          <span class="inline-block hover:text-red-400 transition-colors duration-300 cursor-default mr-4">
+            {word}
+          </span>
+        ))}
+      </h1>
+
+      {/* Línea roja */}
+      <div class="w-24 h-[3px] bg-gradient-to-r from-red-600 to-orange-500 mb-8 rounded-full hero-item" style="--i:2"></div>
+
+      {/* Subtítulo */}
+      <p class="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-xl mb-12 leading-relaxed font-light hero-item" style="--i:3">
+        {heroContent.subtitle}
+      </p>
+
+      {/* Botones */}
+      <div class="flex flex-col sm:flex-row gap-4 hero-item" style="--i:4">
+        <a
+          href="#modelos"
+          class="group inline-flex items-center justify-center gap-2 px-9 py-4 bg-red-600 text-white rounded-full font-semibold text-base transition-all duration-300 hover:bg-red-700 hover:scale-105 hover:shadow-[0_0_32px_rgba(220,38,38,0.45)]"
+        >
+          Explorar Modelos
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a
+          href="#contacto"
+          class="inline-flex items-center justify-center px-9 py-4 border-2 border-white/30 text-white rounded-full font-semibold text-base backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/60 hover:scale-105"
+        >
+          Contáctanos
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  {/* ── Stats flotantes (desktop) ── */}
+  <div class="hidden lg:flex absolute bottom-12 right-12 xl:right-24 z-10 gap-8 hero-item" style="--i:5">
+    {[
+      { num: '200+', label: 'Modelos' },
+      { num: '50+', label: 'Marcas' },
+      { num: '2M+', label: 'Lectores' },
+    ].map((stat) => (
+      <div class="text-center">
+        <p class="text-white font-serif text-3xl font-black leading-none">{stat.num}</p>
+        <p class="text-gray-400 text-xs uppercase tracking-widest mt-1">{stat.label}</p>
+      </div>
+    ))}
+  </div>
+
+  {/* ── Scroll indicator ── */}
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce lg:left-12 lg:translate-x-0 xl:left-24">
+    <span class="text-white/40 text-[10px] uppercase tracking-widest">Scroll</span>
+    <div class="w-5 h-9 border border-white/25 rounded-full flex justify-center pt-2">
+      <div class="w-1 h-2 bg-white/40 rounded-full animate-pulse"></div>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-item {
+    opacity: 0;
+    animation: heroFadeUp 0.7s ease-out calc(var(--i, 0) * 120ms) forwards;
+  }
+</style>

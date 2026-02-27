@@ -1,0 +1,240 @@
+---
+const features = [
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>`,
+    title: 'Tecnología Avanzada',
+    description: 'Sistemas de conducción autónoma, pantallas OLED y conectividad inteligente que anticipan cada necesidad del conductor. Incluye reconocimiento facial, actualizaciones over-the-air y un ecosistema digital que aprende de tus rutinas diarias para ofrecer sugerencias personalizadas de navegación y entretenimiento.',
+    image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=900&q=90&fit=crop&crop=center',
+    stat: 'Nivel 3',
+    statLabel: 'Autonomía'
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`,
+    title: 'Rendimiento Superior',
+    description: 'Motores de última generación con hasta 1.000 CV y sistemas de propulsión híbrida que optimizan cada gota de combustible. La combinación de motores eléctricos y de combustión proporciona una respuesta inmediata y una eficiencia excepcional. Los modos de conducción permiten adaptar el comportamiento del vehículo desde confort hasta pista, con sonido afinado por expertos.',
+    image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=900&q=90&fit=crop&crop=center',
+    stat: '1.000+',
+    statLabel: 'Caballos'
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" /></svg>`,
+    title: 'Diseño Aerodinámico',
+    description: 'Líneas esculpidas en túnel de viento que alcanzan Cx de 0.20, fusionando belleza visual con ingeniería de precisión. Cada curva y entrada de aire ha sido optimizada para reducir la resistencia y mejorar la refrigeración. Los elementos activos como el alerón trasero y las cortinas de aire se despliegan según la velocidad y el modo de conducción.',
+    image: 'https://i.pinimg.com/1200x/b0/f1/28/b0f128b9fa007eaaa2dd2ac678533df2.jpg',
+    stat: 'Cx 0.20',
+    statLabel: 'Aerodinámica'
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
+    title: 'Seguridad Integral',
+    description: 'Sistemas de protección activa y pasiva de última generación con frenado automático de emergencia y asistencia de carril. Los sensores de radar y cámaras 360° trabajan en conjunto para prevenir colisiones. El sistema de mantenimiento de carril con centrado activo y el asistente de ángulo muerto con intervención de freno ofrecen tranquilidad en cada trayecto.',
+    image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=900&q=90&fit=crop&crop=center',
+    stat: '5 ★',
+    statLabel: 'Euro NCAP'
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>`,
+    title: 'Confort Premium',
+    description: 'Interiores esculpidos con cuero Nappa, sistemas de masaje y cancelación activa de ruido para un viaje sereno. La suspensión neumática adaptativa filtra las irregularidades de la carretera, mientras que los asientos con climatización y función de masaje dinámico reducen la fatiga en viajes largos. El ambiente interior se completa con iluminación ambiental personalizable y fragancias seleccionadas.',
+    image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=900&q=90&fit=crop&crop=center',
+    stat: '22 pts',
+    statLabel: 'Masaje'
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>`,
+    title: 'Sostenibilidad',
+    description: 'Plataformas 100% eléctricas e híbridas enchufables con autonomías de hasta 700 km y carga ultrarrápida en 15 minutos. Materiales reciclados de alta calidad y procesos de fabricación neutros en carbono reflejan nuestro compromiso con el planeta. La gestión inteligente de la energía optimiza la regeneración y el consumo, maximizando la autonomía real.',
+    image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=900&q=90&fit=crop&crop=center',
+    stat: '700 km',
+    statLabel: 'Autonomía'
+  }
+];
+---
+
+<section id="caracteristicas" class="py-28 bg-white w-full">
+  <div class="w-full px-6 lg:px-12 xl:px-24">
+
+    {/* ── Header ── */}
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
+      <div>
+        <p class="text-red-600 text-xs font-bold uppercase tracking-[0.25em] mb-3">— Lo que nos define</p>
+        <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-none">
+          CARACTERÍSTICAS <span class="text-red-600">DESTACADAS</span>
+        </h2>
+      </div>
+      <p class="text-gray-500 text-sm max-w-xs leading-relaxed sm:text-right">
+        Innovación y excelencia en cada detalle para una experiencia de conducción incomparable.
+      </p>
+    </div>
+
+    {/* ── Lista vertical — Acordeón en mobile, hover-expand en desktop ── */}
+    <div class="flex flex-col divide-y divide-gray-100" id="features-list">
+      {features.map((feature, index) => (
+        <div
+          class="feat-item group"
+          data-index={index}
+        >
+          {/* ── Fila siempre visible ── */}
+          <div class="feat-trigger flex items-center gap-5 py-5 cursor-pointer select-none">
+
+            {/* Número */}
+            <span class="font-serif text-sm font-black text-gray-300 tabular-nums w-7 flex-shrink-0 group-hover:text-red-600 transition-colors duration-300">
+              {(index + 1).toString().padStart(2, '0')}
+            </span>
+
+            {/* Icono */}
+            <div class="w-10 h-10 rounded-xl bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-500 group-hover:bg-red-600 group-hover:border-red-600 group-hover:text-white transition-all duration-300 flex-shrink-0"
+              set:html={feature.icon}>
+            </div>
+
+            {/* Título */}
+            <h3 class="font-serif text-lg sm:text-xl lg:text-2xl font-black text-gray-900 group-hover:text-red-600 transition-colors duration-300 flex-1 leading-tight">
+              {feature.title}
+            </h3>
+
+            {/* Stat (desktop) */}
+            <div class="hidden sm:flex flex-col items-end mr-6 flex-shrink-0">
+              <span class="text-red-600 font-black text-base tabular-nums leading-none">{feature.stat}</span>
+              <span class="text-gray-400 text-[10px] uppercase tracking-widest mt-0.5">{feature.statLabel}</span>
+            </div>
+
+            {/* Chevron */}
+            <div class="feat-chevron w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center flex-shrink-0 group-hover:border-red-500 transition-all duration-300">
+              <svg class="w-3 h-3 text-gray-400 group-hover:text-red-500 transition-all duration-300 rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+          </div>
+
+          {/* ── Panel expandible ── */}
+          <div class="feat-panel overflow-hidden" style="max-height: 0; transition: max-height 0.45s cubic-bezier(0.16,1,0.3,1), opacity 0.35s ease; opacity: 0;">
+            <div class="flex flex-col sm:flex-row gap-0 rounded-2xl overflow-hidden border border-gray-100 shadow-sm mb-6">
+
+              {/* Imagen */}
+              <div class="sm:w-[45%] lg:w-[40%] h-52 sm:h-auto overflow-hidden flex-shrink-0 relative">
+                <img
+                  src={feature.image.trim()}
+                  alt={feature.title}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                  width="500"
+                  height="320"
+                />
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent to-gray-50/80 hidden sm:block"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent sm:hidden"></div>
+
+                {/* Stat móvil encima de imagen */}
+                <div class="absolute bottom-4 left-4 sm:hidden">
+                  <span class="text-red-400 font-black text-2xl leading-none">{feature.stat}</span>
+                  <p class="text-white/80 text-[10px] uppercase tracking-widest">{feature.statLabel}</p>
+                </div>
+              </div>
+
+              {/* Descripción */}
+              <div class="flex-1 bg-gray-50 p-6 sm:p-8 flex flex-col justify-center gap-4">
+                <div class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0"></span>
+                  <span class="text-red-600 text-xs font-bold uppercase tracking-[0.2em]">{feature.title}</span>
+                </div>
+                <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                  {feature.description}
+                </p>
+                <div class="flex items-center gap-3 pt-2">
+                  <div class="w-8 h-px bg-red-600"></div>
+                  <span class="hidden sm:flex items-center gap-2 text-gray-400 text-xs uppercase tracking-widest">
+                    <span class="text-red-600 font-black">{feature.stat}</span>
+                    {feature.statLabel}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Línea de entrada escalonada */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .feat-item {
+    opacity: 0;
+    animation: fadeUp 0.5s ease-out var(--delay, 0ms) forwards;
+  }
+
+  /* Rotación del chevron cuando está abierto */
+  .feat-item.is-open .feat-chevron svg {
+    transform: rotate(180deg);
+    color: #ef4444;
+  }
+  .feat-item.is-open .feat-chevron {
+    border-color: rgba(239,68,68,0.4);
+    background-color: rgba(239,68,68,0.08);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll<HTMLElement>('.feat-item');
+    const isDesktop = () => window.innerWidth >= 1024;
+
+    // Stagger de entrada
+    items.forEach((item, i) => {
+      item.style.setProperty('--delay', `${i * 60}ms`);
+    });
+
+    function openItem(item: HTMLElement) {
+      const panel = item.querySelector<HTMLElement>('.feat-panel');
+      if (!panel) return;
+      item.classList.add('is-open');
+      panel.style.maxHeight = panel.scrollHeight + 40 + 'px';
+      panel.style.opacity = '1';
+    }
+
+    function closeItem(item: HTMLElement) {
+      const panel = item.querySelector<HTMLElement>('.feat-panel');
+      if (!panel) return;
+      item.classList.remove('is-open');
+      panel.style.maxHeight = '0';
+      panel.style.opacity = '0';
+    }
+
+    function toggleItem(item: HTMLElement) {
+      if (item.classList.contains('is-open')) {
+        closeItem(item);
+      } else {
+        // Cerrar otros abiertos
+        items.forEach(other => { if (other !== item) closeItem(other); });
+        openItem(item);
+      }
+    }
+
+    items.forEach(item => {
+      const trigger = item.querySelector('.feat-trigger');
+
+      // Mobile/tablet: click
+      trigger?.addEventListener('click', () => toggleItem(item));
+
+      // Desktop: hover
+      item.addEventListener('mouseenter', () => {
+        if (isDesktop()) {
+          items.forEach(other => { if (other !== item) closeItem(other); });
+          openItem(item);
+        }
+      });
+
+      item.addEventListener('mouseleave', () => {
+        if (isDesktop()) closeItem(item);
+      });
+    });
+
+    // Abrir el primero por defecto en desktop
+    if (isDesktop() && items[0]) openItem(items[0]);
+  });
+</script>

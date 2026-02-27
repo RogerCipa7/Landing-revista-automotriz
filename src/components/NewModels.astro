@@ -1,0 +1,281 @@
+---
+const models = [
+  { category: 'SUV Premium',     name: 'Porsche Cayenne Turbo',     price: '$132,900', featured: true,
+    image: 'https://www.autoblog.com/.image/w_3840,q_auto:good,c_limit/MjA5MDg5NjA3NjgzMjIxMTA0/2024-porsche-cayenne-turbo-e-hybrid.jpg?arena_f_auto' },
+  { category: 'Deportivo',       name: 'Chevrolet Corvette Z06',    price: '$106,395',
+    image: 'https://a.ccdn.es/cnet/contents/media/own/2014/1/1049567.jpg/900x505cut/' },
+  { category: 'Sedán Ejecutivo', name: 'BMW M5 Competition',        price: '$111,995',
+    image: 'https://www.gearpatrol.com/wp-content/uploads/sites/2/2019/10/2019-BMW-M5-Competition-Review-gear-patrol-lead-full-jpg.webp' },
+  { category: 'Eléctrico',       name: 'Tesla Model S Plaid',       price: '$89,990',
+    image: 'https://www.elcarrocolombiano.com/wp-content/uploads/2021/06/Portada-7.jpg' },
+  { category: 'Pickup',          name: 'Ford F-150 Raptor',         price: '$69,525',
+    image: 'https://hips.hearstapps.com/es.h-cdn.co/cades/contenidos/48059/ford-f-150_raptor-2019-1600-02.jpg?resize=640:*' },
+  { category: 'Coupé',           name: 'Audi RS 5 Sportback',       price: '$85,295',
+    image: 'https://motor.elpais.com/wp-content/uploads/2018/04/2019-Audi-RS5-Sportback-7.jpg' },
+  { category: 'Híbrido',         name: 'Toyota RAV4 Prime',         price: '$43,090',
+    image: 'https://www.cnet.com/a/img/resize/fd0e3560835261f6e24c25dab059a4be04a40f9a/hub/2020/06/30/23810cca-aab3-47ca-959a-19a12e71e517/2021-toyota-rav4-prime-ogi1.jpg?auto=webp&fit=crop&height=675&width=1200' },
+  { category: 'Lujo',            name: 'Mercedes-Benz S-Class',     price: '$114,500',
+    image: 'https://hips.hearstapps.com/hmg-prod/images/2022-mercedes-benz-s500-4matic-102-1642184016.jpg?crop=0.636xw:0.538xh;0.244xw,0.315xh&resize=2048:*' },
+  { category: 'Compacto',        name: 'Mazda3 Turbo',              price: '$31,950',
+    image: 'https://i.blogs.es/79d661/mazda-3-turbo-signature-opiniones-mexico_/840_560.jpg' },
+  { category: 'Off-Road',        name: 'Jeep Wrangler Rubicon',     price: '$50,195',
+    image: 'https://autosdeprimera.com/wp-content/uploads/2023/02/jeep-wrangler-rubicon-20-aniversario-a.jpg' },
+  { category: 'Convertible',     name: 'BMW Z4 M40i',               price: '$64,695',
+    image: 'https://hips.hearstapps.com/es.h-cdn.co/cades/contenidos/60761/bmw-z4-m40i-tuning-g-power-port.jpg?crop=0.888888888888889xw:1xh;center,top&resize=1200:*' },
+  { category: 'Wagon',           name: 'Audi RS 6 Avant',           price: '$120,795',
+    image: 'https://www.elcarrocolombiano.com/wp-content/uploads/2019/08/20190821-AUDI-RS-6-AVANT-2020-01.jpg' },
+  { category: 'Crossover',       name: 'Mazda CX-5 Turbo',          price: '$38,050',
+    image: 'https://www.carpro.com/hubfs/Mazda-cx-5-turbo-siganture-hero.jpg' },
+  { category: 'Minivan',         name: 'Honda Odyssey Elite',        price: '$48,820',
+    image: 'https://www.usnews.com/object/image/00000192-b032-db19-abf6-f13ab2c00001/01-usnpx-2025hondaodyssey-angularfront-jms.jpg?update-time=1729533349700&size=responsive640&format=webp' },
+  { category: 'Sports Car',      name: 'Porsche 718 Cayman GT4',    price: '$102,850', featured: true,
+    image: 'https://www.cnet.com/a/img/resize/327b54a6d8c77285028af8ecbaf4981026747a83/hub/2020/06/24/bb068e63-74b7-478f-a3fa-5b8e2a41df52/2020-porsche-718-cayman-gt4-017.jpg?auto=webp&fit=crop&height=675&width=1200' },
+  { category: 'Luxury SUV',      name: 'Range Rover Sport',         price: '$83,000',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO4pSx2g50ItetG0k7-LeBOmB6hl-aTMrB0A&s' },
+  { category: 'Hatchback',       name: 'Volkswagen Golf R',         price: '$44,640',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn352hAV-BHBDAH-ORvIulvDc1OqtFJZTVFA&s' },
+  { category: 'Supercar',        name: 'Lamborghini Huracán',       price: '$248,295',
+    image: 'https://quadis.s3.amazonaws.com/GestorQuadis/Vehiculos/Lamborghini_Hurac%C3%A1n_Tecnica_470615/tecnica_viola_pasifae-2508h.jpg' },
+];
+---
+
+<section id="modelos" class="py-28 bg-gray-950 w-full overflow-hidden">
+  <div class="w-full px-6 lg:px-12 xl:px-24">
+
+    {/* ── Header ── */}
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
+      <div>
+        <p class="text-red-500 text-xs font-bold uppercase tracking-[0.25em] mb-3">— Colección exclusiva 2025</p>
+        <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-none">
+          NUEVOS <span class="text-red-500">MODELOS</span>
+        </h2>
+        <p class="text-gray-600 text-sm mt-3">Explora nuestra colección exclusiva de vehículos</p>
+      </div>
+
+      {/* Controles */}
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <span id="carousel-counter" class="text-gray-600 text-sm tabular-nums font-medium mr-1">
+          01 / {models.length.toString().padStart(2,'0')}
+        </span>
+        <button id="scroll-left" aria-label="Anterior"
+          class="nav-btn w-11 h-11 rounded-full bg-white/5 border border-white/10 text-gray-400 flex items-center justify-center hover:bg-red-600 hover:border-red-600 hover:text-white transition-all duration-200">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button id="scroll-right" aria-label="Siguiente"
+          class="nav-btn w-11 h-11 rounded-full bg-red-600 text-white flex items-center justify-center hover:bg-red-700 transition-all duration-200">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {/* ── Carrusel — sin fade izquierdo para no cortar la primera card ── */}
+  <div class="relative">
+    {/* Solo fade derecho para indicar más contenido */}
+    <div class="pointer-events-none absolute top-0 right-0 w-16 sm:w-24 h-full bg-gradient-to-l from-gray-950 to-transparent z-10"></div>
+
+    <div
+      id="models-carousel"
+      class="flex gap-4 sm:gap-5 overflow-x-auto pb-3 snap-x snap-mandatory scroll-smooth px-6 lg:px-12 xl:px-24"
+      tabindex="0"
+      role="list"
+      aria-label="Carrusel de modelos"
+    >
+      {models.map((model, index) => (
+        <article
+          class={`model-card group relative flex-shrink-0 rounded-2xl overflow-hidden cursor-pointer snap-start bg-gray-900 transition-all duration-300 ${model.featured ? 'ring-1 ring-red-500/60' : 'border border-white/5 hover:border-red-500/30'}`}
+          style={`--i:${index}`}
+          role="listitem"
+          data-index={index}
+        >
+          {/* Imagen */}
+          <div class="card-img relative overflow-hidden">
+            <img
+              src={model.image.trim()}
+              alt={model.name}
+              class="w-full h-full object-cover group-hover:scale-[1.06] transition-transform duration-700 ease-out"
+              loading={index < 5 ? 'eager' : 'lazy'}
+              width="300"
+              height="200"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/10 to-transparent"></div>
+
+            <span class="absolute top-3 left-3 px-2.5 py-1 bg-black/65 backdrop-blur-sm border border-white/10 rounded-full text-[10px] font-bold text-white uppercase tracking-widest">
+              {model.category}
+            </span>
+            {model.featured && (
+              <span class="absolute top-3 right-3 px-2.5 py-1 bg-red-600 rounded-full text-[10px] font-bold text-white uppercase tracking-widest">★ TOP</span>
+            )}
+            <span class="absolute bottom-2 right-3 font-serif text-6xl font-black leading-none select-none text-white/[0.06]">
+              {(index + 1).toString().padStart(2,'0')}
+            </span>
+          </div>
+
+          {/* Info */}
+          <div class="p-5">
+            <h3 class="font-serif text-base sm:text-[17px] font-black text-white leading-tight mb-4 group-hover:text-red-400 transition-colors duration-300 line-clamp-2">
+              {model.name}
+            </h3>
+            <div class="flex items-center justify-between">
+              <span class="text-red-400 font-black text-base sm:text-lg tabular-nums">{model.price}</span>
+              <div class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-red-600 group-hover:border-red-600 transition-all duration-300">
+                <svg class="w-3.5 h-3.5 text-gray-500 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-red-600 to-orange-500 group-hover:w-full transition-all duration-500 ease-out"></div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  {/* ── Progress + dots ── */}
+  <div class="px-6 lg:px-12 xl:px-24 mt-8 flex flex-col gap-5">
+
+    {/* Dots */}
+    <div id="carousel-dots" class="flex items-center justify-center gap-1.5" role="tablist" aria-label="Posición del carrusel">
+      {models.map((_, i) => (
+        <button
+          class="dot h-[3px] rounded-full transition-all duration-300 bg-white/15 hover:bg-red-500/60"
+          style="width: 20px"
+          data-dot={i}
+          aria-label={`Ir al modelo ${i + 1}`}
+          role="tab"
+          aria-selected={i === 0 ? 'true' : 'false'}
+        ></button>
+      ))}
+    </div>
+
+    {/* Progress bar */}
+    <div class="flex items-center gap-4">
+      <div class="flex-1 h-px bg-white/5 rounded-full overflow-hidden">
+        <div id="progress-bar" class="h-full bg-gradient-to-r from-red-600 to-orange-500 rounded-full transition-all duration-300 ease-out" style="width:5.5%"></div>
+      </div>
+      <span class="text-gray-700 text-xs uppercase tracking-widest whitespace-nowrap tabular-nums">
+        {models.length} modelos
+      </span>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Scrollbar oculta */
+  #models-carousel { scrollbar-width: none; -ms-overflow-style: none; }
+  #models-carousel::-webkit-scrollbar { display: none; }
+  #models-carousel:focus-visible { outline: 2px solid #ef4444; outline-offset: 4px; border-radius: 0.5rem; }
+
+  /* Ancho de card responsive via CSS custom props */
+  .model-card { width: min(80vw, 300px); }
+  @media (min-width: 640px)  { .model-card { width: 280px; } }
+  @media (min-width: 1024px) { .model-card { width: 300px; } }
+
+  /* Altura imagen responsive */
+  .card-img { height: 190px; }
+  @media (min-width: 640px)  { .card-img { height: 200px; } }
+  @media (min-width: 1024px) { .card-img { height: 210px; } }
+
+  /* Dot activo */
+  .dot.active {
+    width: 32px !important;
+    background-color: #ef4444 !important;
+  }
+
+  /* Botones deshabilitados */
+  .nav-btn.is-disabled { opacity: 0.25; pointer-events: none; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .model-card {
+    opacity: 0;
+    animation: fadeUp 0.45s ease-out calc(var(--i, 0) * 50ms) forwards;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousel    = document.getElementById('models-carousel') as HTMLElement | null;
+    const btnLeft     = document.getElementById('scroll-left');
+    const btnRight    = document.getElementById('scroll-right');
+    const counter     = document.getElementById('carousel-counter');
+    const progressBar = document.getElementById('progress-bar');
+    const dots        = document.querySelectorAll<HTMLElement>('.dot');
+
+    if (!carousel) return;
+
+    const cards = carousel.querySelectorAll<HTMLElement>('.model-card');
+    const total  = cards.length;
+
+    // Ancho real del card incluyendo gap
+    function getCardWidth(): number {
+      const card = cards[0];
+      if (!card) return 300;
+      const gap  = parseFloat(getComputedStyle(carousel).gap) || 20;
+      return card.offsetWidth + gap;
+    }
+
+    // Índice actual basado en scrollLeft
+    function getCurrentIndex(): number {
+      const cw = getCardWidth();
+      return Math.round(carousel.scrollLeft / cw);
+    }
+
+    function updateUI() {
+      const idx = getCurrentIndex();
+      const { scrollLeft, scrollWidth, clientWidth } = carousel;
+      const pct = ((scrollLeft + clientWidth) / scrollWidth) * 100;
+
+      // Counter
+      if (counter) counter.textContent =
+        `${String(Math.min(idx + 1, total)).padStart(2,'0')} / ${String(total).padStart(2,'0')}`;
+
+      // Progress bar
+      if (progressBar) progressBar.style.width = `${Math.min(pct, 100)}%`;
+
+      // Dots
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === idx);
+        dot.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+      });
+
+      // Nav buttons
+      btnLeft?.classList.toggle('is-disabled',  scrollLeft <= 4);
+      btnRight?.classList.toggle('is-disabled', scrollLeft + clientWidth >= scrollWidth - 4);
+    }
+
+    // Navegar a index concreto (snap preciso)
+    function goTo(index: number) {
+      const cw = getCardWidth();
+      carousel.scrollTo({ left: cw * index, behavior: 'smooth' });
+    }
+
+    // Botones: avanza/retrocede de 1 en 1 (snap se encarga del resto)
+    btnLeft?.addEventListener('click',  () => goTo(Math.max(getCurrentIndex() - 1, 0)));
+    btnRight?.addEventListener('click', () => goTo(Math.min(getCurrentIndex() + 1, total - 1)));
+
+    // Dots clickeables
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => goTo(i));
+    });
+
+    // Teclado
+    carousel.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(Math.max(getCurrentIndex() - 1, 0)); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(Math.min(getCurrentIndex() + 1, total - 1)); }
+    });
+
+    carousel.addEventListener('scroll', updateUI, { passive: true });
+    window.addEventListener('resize',  updateUI, { passive: true });
+
+    updateUI();
+  });
+</script>

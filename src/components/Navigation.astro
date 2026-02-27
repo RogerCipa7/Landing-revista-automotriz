@@ -1,0 +1,169 @@
+---
+const menuItems = [
+  { name: 'Inicio',          href: '#inicio' },
+  { name: 'Modelos',         href: '#modelos' },
+  { name: 'Catálogo',        href: '#catalogo' },
+  { name: 'Características', href: '#caracteristicas' },
+  { name: 'Noticias',        href: '#noticias' },
+  { name: 'Contacto',        href: '#contacto' },
+];
+---
+
+<nav id="main-nav" class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-[100] border-b border-gray-200 shadow-sm">
+  <div class="w-full px-6 lg:px-12 xl:px-24">
+    <div class="flex justify-between items-center h-20 lg:h-24">
+
+      {/* Logo */}
+      <a href="/" class="flex items-center space-x-3 flex-shrink-0">
+        <span class="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 tracking-tight whitespace-nowrap">
+          REVISTA<span class="text-red-600">AUTOMOTRIZ</span>
+        </span>
+      </a>
+
+      {/* Menú desktop */}
+      <div class="hidden md:flex items-center justify-end flex-1">
+        <div class="flex items-center space-x-8 lg:space-x-12">
+          {menuItems.map((item) => (
+            <a
+              href={item.href}
+              class="relative text-gray-800 hover:text-red-600 transition-colors duration-300 text-sm lg:text-base font-medium uppercase tracking-wide group whitespace-nowrap"
+            >
+              {item.name}
+              <span class="absolute left-0 -bottom-1 w-full h-0.5 bg-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* Hamburguesa */}
+      <button id="mobile-toggle" class="md:hidden text-gray-700 focus:outline-none p-2" aria-label="Abrir menú" aria-expanded="false">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="burger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+{/* Overlay */}
+<div id="mobile-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[110] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+{/* Drawer */}
+<div id="mobile-menu" class="fixed top-0 right-0 h-full w-[300px] sm:w-[340px] bg-white shadow-2xl z-[120] transform translate-x-full transition-transform duration-300 ease-in-out">
+  <div class="flex flex-col h-full">
+
+    <div class="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+      <span class="font-serif text-lg font-bold text-gray-900 tracking-widest uppercase">Menú</span>
+      <button id="mobile-close" class="text-gray-400 hover:text-gray-900 p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Cerrar menú">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto py-4 px-3">
+      {menuItems.map((item, index) => (
+        <a
+          href={item.href}
+          class="nav-item group flex items-center justify-between px-4 py-4 mb-1 text-gray-800 hover:text-red-600 hover:bg-red-50 rounded-xl text-base font-semibold uppercase tracking-wide transition-all duration-200"
+          style={`--delay: ${index * 55}ms`}
+        >
+          {item.name}
+          <svg class="w-4 h-4 text-gray-400 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      ))}
+    </div>
+
+    <div class="px-6 py-5 border-t border-gray-100 bg-gray-50">
+      <p class="text-xs text-gray-400 text-center tracking-wide uppercase">Revista Automotriz © 2025</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes slideInItem {
+    from { opacity: 0; transform: translateX(20px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  .nav-item { opacity: 0; }
+  .nav-item.animate {
+    animation: slideInItem 0.28s ease-out var(--delay, 0ms) both;
+  }
+</style>
+
+<script>
+  const nav        = document.getElementById('main-nav');
+  const toggle     = document.getElementById('mobile-toggle');
+  const closeBtn   = document.getElementById('mobile-close');
+  const menu       = document.getElementById('mobile-menu');
+  const overlay    = document.getElementById('mobile-overlay');
+  const burgerIcon = document.getElementById('burger-icon');
+  const navItems   = menu?.querySelectorAll('.nav-item');
+
+  // Scroll shrink
+  window.addEventListener('scroll', () => {
+    nav?.classList.toggle('shadow-md', window.scrollY > 40);
+  }, { passive: true });
+
+  function openMenu() {
+    menu?.classList.remove('translate-x-full');
+    overlay?.classList.remove('opacity-0', 'pointer-events-none');
+    burgerIcon?.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+    toggle?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+
+    navItems?.forEach(el => {
+      el.classList.remove('animate');
+      void (el as HTMLElement).offsetWidth;
+      el.classList.add('animate');
+    });
+  }
+
+  function closeMenu() {
+    menu?.classList.add('translate-x-full');
+    overlay?.classList.add('opacity-0', 'pointer-events-none');
+    burgerIcon?.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+    toggle?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  toggle?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+  overlay?.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+  // ✅ Fix principal: restaurar overflow ANTES de navegar
+  // Si no, body overflow:hidden bloquea el scroll al anchor durante los 300ms de animación
+  menu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = (link as HTMLAnchorElement).getAttribute('href');
+
+      if (href && href.startsWith('#')) {
+        e.preventDefault(); // Tomamos control de la navegación
+
+        // 1. Restaurar scroll del body inmediatamente
+        document.body.style.overflow = '';
+
+        // 2. Cerrar el drawer (animación 300ms)
+        menu.classList.add('translate-x-full');
+        overlay?.classList.add('opacity-0', 'pointer-events-none');
+        burgerIcon?.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+        toggle?.setAttribute('aria-expanded', 'false');
+
+        // 3. Scroll al target después de que el drawer cierre
+        setTimeout(() => {
+          const target = document.querySelector(href);
+          if (target) {
+            const navHeight = nav?.offsetHeight ?? 80;
+            const top = (target as HTMLElement).getBoundingClientRect().top + window.scrollY - navHeight;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+        }, 320); // Justo después de la animación de cierre
+      } else {
+        closeMenu();
+      }
+    });
+  });
+</script>
