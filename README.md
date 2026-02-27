@@ -240,7 +240,7 @@ rm -rf .astro && npm run dev
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Roger_Cipagauta-0077B5?logo=linkedin)](https://www.linkedin.com/in/roger-cipagauta-b1626b329/)
 [![GitHub](https://img.shields.io/badge/GitHub-rogercipa7-181717?logo=github)](https://github.com/rogercipa7)
-[![Email](https://img.shields.io/badge/Email-puraser.col@gmail.com-D14836?logo=gmail)](mailto:rogercipagauta@gmail.com)
+[![Email](https://img.shields.io/badge/Email-rogercipagauta@gmail.com-D14836?logo=gmail)](mailto:rogercipagauta@gmail.com)
 
 ---
 
