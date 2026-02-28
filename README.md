@@ -13,7 +13,7 @@
 
 <br/>
 
-[![Ver en producción](https://img.shields.io/badge/🚀%20VER%20EN%20PRODUCCIÓN-FF3D00?style=for-the-badge&logoColor=white)](https://landing-revista-automotriz-48mj3ttm2-rogercipagautas-projects.vercel.app)
+[![Ver en producción](https://img.shields.io/badge/🚀%20VER%20EN%20PRODUCCIÓN-FF3D00?style=for-the-badge&logoColor=white)](https://landing-revista-automotriz.vercel.app/)
 &nbsp;
 [![Astro](https://img.shields.io/badge/Astro%204.16-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build)
 &nbsp;
