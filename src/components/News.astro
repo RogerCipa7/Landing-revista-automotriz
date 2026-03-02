@@ -49,62 +49,46 @@ const news = [
     {/* Articles */}
     <div class="space-y-6 lg:space-y-8">
       {news.map((item, index) => (
-        <article class={`news-card group flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-500`} style={`--i:${index}`}>
+        <article class={`news-card group flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500`} style={`--i:${index}`}>
 
           {/* Imagen */}
-          <div class="lg:w-[52%] overflow-hidden relative">
+          <div class="lg:w-[50%] overflow-hidden relative">
             <img
               src={item.image}
               alt={item.title}
-              class="w-full h-64 sm:h-80 lg:h-full min-h-[360px] object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+              class="w-full h-64 sm:h-80 lg:h-full min-h-[400px] object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
               loading="lazy"
             />
             {/* Category pill encima de la imagen */}
-            <span class="absolute top-5 left-5 inline-flex items-center gap-1.5 px-3 py-1.5 bg-black/70 backdrop-blur-sm text-white text-xs font-semibold uppercase tracking-widest rounded-full">
-              <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+            <span class="absolute top-6 left-6 inline-flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur-md text-white text-xs font-bold uppercase tracking-widest rounded-full border border-white/10">
+              <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
               {item.category}
             </span>
           </div>
 
           {/* Contenido */}
-          <div class={`lg:w-[48%] flex flex-col justify-between p-8 lg:p-12 ${index % 2 === 0 ? '' : ''}`}>
-
-            {/* Top: número de artículo (sin flecha) */}
-            <div class="flex items-center justify-between mb-8">
-              <span class="font-serif text-7xl font-black text-gray-100 leading-none select-none">
-                0{index + 1}
-              </span>
-              {/* Flecha eliminada */}
+          <div class="lg:w-[50%] flex flex-col justify-center p-8 lg:p-14">
+            <div class="mb-6 flex items-center justify-between">
+               <span class="text-red-600 font-bold text-xs uppercase tracking-[0.2em]">{item.date}</span>
+               <span class="font-serif text-5xl font-black text-gray-50 select-none group-hover:text-red-50 transition-colors">0{index + 1}</span>
             </div>
 
-            {/* Título */}
-            <div class="flex-1">
-              <h3 class="font-serif text-2xl sm:text-3xl lg:text-[2rem] font-black text-gray-900 leading-tight mb-5 group-hover:text-red-700 transition-colors duration-300">
-                {item.title}
-              </h3>
-              <p class="text-gray-500 leading-relaxed text-sm lg:text-base">
-                {item.excerpt}
-              </p>
-            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 leading-tight mb-6 group-hover:text-red-600 transition-colors duration-300">
+              {item.title}
+            </h3>
+            <p class="text-gray-500 leading-relaxed text-sm lg:text-base mb-8 line-clamp-3 lg:line-clamp-none">
+              {item.excerpt}
+            </p>
 
-            {/* Divisor */}
-            <div class="my-8 flex items-center gap-4">
-              <div class="w-10 h-px bg-red-500"></div>
-              <div class="flex-1 h-px bg-gray-100"></div>
-            </div>
-
-            {/* Autor */}
-            <div class="flex items-center gap-4">
-              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gray-800 to-gray-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+            <div class="flex items-center gap-4 mt-auto pt-6 border-t border-gray-100">
+              <div class="w-12 h-12 rounded-full bg-gray-900 flex items-center justify-center text-white text-sm font-bold shadow-lg">
                 {item.author.split(' ').map((n: string) => n[0]).join('').slice(0, 2)}
               </div>
-              <div class="flex-1 min-w-0">
-                <p class="font-semibold text-gray-900 text-sm truncate">{item.author}</p>
+              <div>
+                <p class="font-bold text-gray-900 text-sm">{item.author}</p>
                 <p class="text-xs text-gray-400">{item.role}</p>
               </div>
-              <span class="text-xs text-gray-400 whitespace-nowrap">{item.date}</span>
             </div>
-
           </div>
         </article>
       ))}

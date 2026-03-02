@@ -11,9 +11,10 @@ const heroContent = {
   {/* ── Imagen de fondo full-width ── */}
   <div class="absolute inset-0 z-0">
     <img
+      id="hero-bg"
       src={heroContent.image}
       alt="Hero background"
-      class="w-full h-full object-cover object-center"
+      class="w-full h-full object-cover object-center scale-110"
       loading="eager"
     />
     {/* Overlay degradado para legibilidad del texto */}
@@ -95,14 +96,57 @@ const heroContent = {
 
 </section>
 
+<script>
+  // Parallax effect for hero background
+  const heroBg = document.getElementById('hero-bg');
+  window.addEventListener('scroll', () => {
+    if (heroBg) {
+      const scroll = window.scrollY;
+      heroBg.style.transform = `translateY(${scroll * 0.4}px) scale(1.1)`;
+    }
+  }, { passive: true });
+
+  // Intersection Observer for staggered entrance
+  const observerOptions = {
+    threshold: 0.1
+  };
+
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const items = entry.target.querySelectorAll('.hero-item');
+        items.forEach((item, index) => {
+          (item as HTMLElement).style.animationDelay = `${index * 150}ms`;
+          item.classList.add('animate-in');
+        });
+        heroObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const heroSection = document.getElementById('inicio');
+  if (heroSection) heroObserver.observe(heroSection);
+</script>
+
 <style>
   @keyframes heroFadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from { 
+      opacity: 0; 
+      transform: translateY(40px) skewY(2deg); 
+      filter: blur(10px);
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0) skewY(0);
+      filter: blur(0);
+    }
   }
 
   .hero-item {
     opacity: 0;
-    animation: heroFadeUp 0.7s ease-out calc(var(--i, 0) * 120ms) forwards;
+  }
+
+  .hero-item.animate-in {
+    animation: heroFadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   }
 </style>
