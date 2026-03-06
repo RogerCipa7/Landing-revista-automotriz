@@ -1,6 +1,7 @@
 ---
 const menuItems = [
-  { name: 'Inicio',          href: '#inicio' },
+  { name: 'Inicio',          href: '#' },
+  { name: 'Nosotros',        href: '#nosotros' },
   { name: 'Modelos',         href: '#modelos' },
   { name: 'Catálogo',        href: '#catalogo' },
   { name: 'Características', href: '#caracteristicas' },
@@ -9,13 +10,13 @@ const menuItems = [
 ];
 ---
 
-<nav id="main-nav" class="fixed top-0 w-full bg-white/70 backdrop-blur-xl z-[100] border-b border-gray-200/50 transition-all duration-500 ease-in-out">
+<nav id="main-nav" class="fixed top-0 w-full bg-white/80 backdrop-blur-xl z-[100] border-b border-gray-200/50 shadow-sm transition-all duration-500 ease-in-out">
   <div class="w-full px-6 lg:px-12 xl:px-24">
     <div class="flex justify-between items-center h-20 lg:h-24 transition-all duration-300" id="nav-container">
 
       {/* Logo */}
-      <a href="/" class="flex items-center space-x-3 flex-shrink-0">
-        <span class="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 tracking-tight whitespace-nowrap">
+      <a href="/" class="flex items-center space-x-3 flex-shrink-0 group">
+        <span class="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 tracking-tight whitespace-nowrap group-hover:text-red-600 transition-colors">
           REVISTA<span class="text-red-600">AUTOMOTRIZ</span>
         </span>
       </a>
@@ -26,7 +27,7 @@ const menuItems = [
           {menuItems.map((item) => (
             <a
               href={item.href}
-              class="relative text-gray-800 hover:text-red-600 transition-colors duration-300 text-sm lg:text-base font-medium uppercase tracking-wide group whitespace-nowrap"
+              class="relative text-gray-600 hover:text-gray-900 transition-colors duration-300 text-sm lg:text-base font-medium uppercase tracking-wide group whitespace-nowrap"
             >
               {item.name}
               <span class="absolute left-0 -bottom-1 w-full h-0.5 bg-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
@@ -36,7 +37,7 @@ const menuItems = [
       </div>
 
       {/* Hamburguesa */}
-      <button id="mobile-toggle" class="md:hidden text-gray-700 focus:outline-none p-2" aria-label="Abrir menú" aria-expanded="false">
+      <button id="mobile-toggle" class="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none p-2 transition-colors" aria-label="Abrir menú" aria-expanded="false">
         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path id="burger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
@@ -49,7 +50,7 @@ const menuItems = [
 <div id="mobile-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[110] opacity-0 pointer-events-none transition-opacity duration-300"></div>
 
 {/* Drawer */}
-<div id="mobile-menu" class="fixed top-0 right-0 h-full w-[300px] sm:w-[340px] bg-white shadow-2xl z-[120] transform translate-x-full transition-transform duration-300 ease-in-out">
+<div id="mobile-menu" class="fixed top-0 right-0 h-full w-[300px] sm:w-[340px] bg-white border-l border-gray-200 shadow-2xl z-[120] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
   <div class="flex flex-col h-full">
 
     <div class="flex items-center justify-between px-6 py-5 border-b border-gray-100">
@@ -65,7 +66,7 @@ const menuItems = [
       {menuItems.map((item, index) => (
         <a
           href={item.href}
-          class="nav-item group flex items-center justify-between px-4 py-4 mb-1 text-gray-800 hover:text-red-600 hover:bg-red-50 rounded-xl text-base font-semibold uppercase tracking-wide transition-all duration-200"
+          class="nav-item group flex items-center justify-between px-4 py-4 mb-1 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-xl text-base font-semibold uppercase tracking-wide transition-all duration-200"
           style={`--delay: ${index * 55}ms`}
         >
           {item.name}
@@ -76,8 +77,8 @@ const menuItems = [
       ))}
     </div>
 
-    <div class="px-6 py-5 border-t border-gray-100 bg-gray-50">
-      <p class="text-xs text-gray-400 text-center tracking-wide uppercase">Revista Automotriz © 2025</p>
+    <div class="px-6 py-5 border-t border-gray-100 bg-gray-50/50">
+      <p class="text-xs text-gray-500 text-center tracking-wide uppercase">Revista Automotriz © 2025</p>
     </div>
   </div>
 </div>
@@ -111,13 +112,13 @@ const menuItems = [
     
     // Toggle shadow and height
     if (currentScrollY > 40) {
-      nav?.classList.add('shadow-lg', 'bg-white/90');
-      nav?.classList.remove('bg-white/70');
+      nav?.classList.add('shadow-md', 'bg-white/95');
+      nav?.classList.remove('bg-white/80', 'shadow-sm');
       navContainer?.classList.remove('lg:h-24');
       navContainer?.classList.add('lg:h-20');
     } else {
-      nav?.classList.remove('shadow-lg', 'bg-white/90');
-      nav?.classList.add('bg-white/70');
+      nav?.classList.remove('shadow-md', 'bg-white/95');
+      nav?.classList.add('bg-white/80', 'shadow-sm');
       navContainer?.classList.add('lg:h-24');
       navContainer?.classList.remove('lg:h-20');
     }

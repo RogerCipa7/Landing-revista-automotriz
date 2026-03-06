@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import VehicleDetailModal from './VehicleDetailModal.astro';
 
 const cars = [
@@ -6,7 +7,11 @@ const cars = [
     type: 'SUV',
     year: '2025',
     name: 'Lamborghini Urus S',
-    specs: '4.0L V8 Biturbo • 666 HP • AWD • 0-100 en 3.5s',
+    specs: [
+      { icon: 'lucide:gauge', text: '3.5s 0-100' },
+      { icon: 'lucide:zap', text: '666 HP' },
+      { icon: 'lucide:settings-2', text: 'AWD' }
+    ],
     price: '$250,000',
     image: 'https://media.autoexpress.co.uk/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1683648332/evo/2023/05/Lamborghini%20Urus%20S%202023%20review.jpg',
     description: 'El SUV superdeportivo que redefine el lujo y el rendimiento. Diseño agresivo, tecnología de punta y una experiencia de conducción incomparable.',
@@ -28,7 +33,11 @@ const cars = [
     type: 'DEPORTIVO',
     year: '2025',
     name: 'Ferrari 296 GTB',
-    specs: '3.0L V6 Híbrido • 830 HP • RWD • 0-100 en 2.9s',
+    specs: [
+      { icon: 'lucide:gauge', text: '2.9s 0-100' },
+      { icon: 'lucide:zap', text: '830 HP' },
+      { icon: 'lucide:settings-2', text: 'RWD' }
+    ],
     price: '$322,000',
     image: 'https://exoticcars.ae/uploads/blog-images/50/img.jpeg',
     description: 'Híbrido enchufable que combina la pasión Ferrari con eficiencia moderna. Diseño aerodinámico y un sonido que eriza la piel.',
@@ -50,7 +59,11 @@ const cars = [
     type: 'SEDÁN',
     year: '2025',
     name: 'BMW M5 Competition',
-    specs: '4.4L V8 Biturbo • 627 HP • AWD • 0-100 en 3.3s',
+    specs: [
+      { icon: 'lucide:gauge', text: '3.3s 0-100' },
+      { icon: 'lucide:zap', text: '627 HP' },
+      { icon: 'lucide:settings-2', text: 'AWD' }
+    ],
     price: '$115,000',
     image: 'https://media.drive.com.au/obj/tx_q:50,rs:auto:1920:1080:1/driveau/upload/cms/uploads/MDA4kXhARjCCiFnv2Orj',
     description: 'El sedán deportivo definitivo. Potencia brutal con la elegancia y confort de un BMW de lujo.',
@@ -71,8 +84,12 @@ const cars = [
   {
     type: 'ELÉCTRICO',
     year: '2025',
-    name: 'Porsche Taycan Turbo S',
-    specs: 'Dual Motor • 761 HP • AWD • 0-100 en 2.8s',
+    name: 'Porsche Taycan S',
+    specs: [
+      { icon: 'lucide:gauge', text: '2.8s 0-100' },
+      { icon: 'lucide:zap', text: '761 HP' },
+      { icon: 'lucide:settings-2', text: 'AWD' }
+    ],
     price: '$185,000',
     image: 'https://www.topgear.com/sites/default/files/2024/12/1-Porsche-Taycan-Turbo-S-review-2024-UK.jpg',
     description: 'El deportivo eléctrico que lleva el ADN Porsche al futuro. Aceleración instantánea y tecnología de carga líder.',
@@ -94,7 +111,11 @@ const cars = [
     type: 'COUPÉ',
     year: '2025',
     name: 'Mercedes-AMG GT 63',
-    specs: '4.0L V8 Biturbo • 630 HP • AWD • 0-100 en 3.2s',
+    specs: [
+      { icon: 'lucide:gauge', text: '3.2s 0-100' },
+      { icon: 'lucide:zap', text: '630 HP' },
+      { icon: 'lucide:settings-2', text: 'AWD' }
+    ],
     price: '$165,000',
     image: 'https://cdn.motor1.com/images/mgl/vxZBrR/s1/2025-mercedes-amg-gt63-pro.jpg',
     description: 'Coupé de cuatro puertas que fusiona lujo AMG con rendimiento de pista. Diseño escultural y tecnología MBUX de última generación.',
@@ -116,7 +137,11 @@ const cars = [
     type: 'HYPERCAR',
     year: '2025',
     name: 'McLaren 750S',
-    specs: '4.0L V8 Biturbo • 750 HP • RWD • 0-100 en 2.8s',
+    specs: [
+      { icon: 'lucide:gauge', text: '2.8s 0-100' },
+      { icon: 'lucide:zap', text: '750 HP' },
+      { icon: 'lucide:settings-2', text: 'RWD' }
+    ],
     price: '$330,000',
     image: 'https://acnews.blob.core.windows.net/imgnews/medium/NAZ_2d30a900748240a0beb1e4f22bde7e36.webp',
     description: 'La esencia pura de McLaren en un hypercar. Chasis monocasco de carbono, aerodinámica activa y una relación peso-potencia insuperable.',
@@ -139,7 +164,11 @@ const cars = [
     type: 'PICKUP',
     year: '2025',
     name: 'Ford F-150 Raptor R',
-    specs: '5.2L V8 Supercharged • 700 HP • 4WD • 0-100 en 4.2s',
+    specs: [
+      { icon: 'lucide:gauge', text: '4.2s 0-100' },
+      { icon: 'lucide:zap', text: '700 HP' },
+      { icon: 'lucide:settings-2', text: '4WD' }
+    ],
     price: '$108,000',
     image: 'https://blackfoxmotors.de/wp-content/uploads/2024/10/394A0051-scaled.jpeg',
     description: 'La pickup deportiva definitiva con motor V8 sobrealimentado. Capacidad off-road extrema con la potencia de un superdeportivo.',
@@ -161,7 +190,11 @@ const cars = [
     type: 'LUJO',
     year: '2025',
     name: 'Rolls-Royce Ghost',
-    specs: '6.75L V12 Biturbo • 571 HP • AWD • 0-100 en 4.6s',
+    specs: [
+      { icon: 'lucide:gauge', text: '4.6s 0-100' },
+      { icon: 'lucide:zap', text: '571 HP' },
+      { icon: 'lucide:settings-2', text: 'AWD' }
+    ],
     price: '$410,000',
     image: 'https://e9iwhqzsmh4.exactdn.com/wp-content/uploads/Rolls-Royce-Ghost-Serie-II-091024-07.jpg?strip=all&lossy=1&ssl=1',
     description: 'El epítome del lujo británico. Silencio absoluto, acabados artesanales y una experiencia de conducción serena e inigualable.',
@@ -182,8 +215,12 @@ const cars = [
   {
     type: 'DEPORTIVO',
     year: '2025',
-    name: 'Audi R8 V10 Performance',
-    specs: '5.2L V10 • 612 HP • AWD • 0-100 en 3.1s',
+    name: 'Audi R8 V10',
+    specs: [
+      { icon: 'lucide:gauge', text: '3.1s 0-100' },
+      { icon: 'lucide:zap', text: '612 HP' },
+      { icon: 'lucide:settings-2', text: 'AWD' }
+    ],
     price: '$208,000',
     image: 'https://robbreport.com/wp-content/uploads/2019/11/audi-r8-g.jpg',
     description: 'El último superdeportivo con motor V10 atmosférico de Audi. Sonido inolvidable, tracción quattro y precisión alemana.',
@@ -204,21 +241,24 @@ const cars = [
 ];
 ---
 
-<section id="catalogo" class="py-24 bg-white w-full">
-  <div class="w-full px-6 lg:px-12 xl:px-24">
+<section id="catalogo" class="py-24 bg-gray-50 w-full relative">
+  <!-- Decorative background elements -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+
+  <div class="w-full px-6 lg:px-12 xl:px-24 relative z-10">
     <div class="text-center mb-16">
-      <h2 class="font-serif text-4xl font-bold text-gray-900 mb-2">
-        CATÁLOGO DE <span class="text-red-600">MODELOS</span>
+      <h2 class="font-serif text-4xl lg:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+        CATÁLOGO <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-700">PREMIUM</span>
       </h2>
-      <p class="text-gray-600 max-w-2xl mx-auto mb-10">
-        Los vehículos más exclusivos del mundo con especificaciones técnicas reales
+      <p class="text-gray-500 max-w-2xl mx-auto mb-10 text-lg">
+        Colección exclusiva de vehículos de alto rendimiento diseñados para dominar el asfalto.
       </p>
 
       {/* Filtros */}
       <div class="flex flex-wrap justify-center gap-3 mb-12">
         {['TODOS', 'SUV', 'DEPORTIVO', 'SEDÁN', 'ELÉCTRICO', 'HYPERCAR', 'PICKUP', 'LUJO'].map((cat) => (
           <button
-            class="filter-btn px-6 py-2 rounded-full border border-gray-200 text-sm font-semibold transition-all duration-300 hover:border-red-500 hover:text-red-600 focus:outline-none"
+            class="filter-btn px-6 py-2 rounded-full border border-gray-200 bg-white shadow-sm text-gray-600 text-sm font-semibold backdrop-blur-sm transition-all duration-300 hover:border-red-500 hover:bg-red-50 hover:text-red-600 focus:outline-none"
             data-filter={cat}
           >
             {cat}
@@ -227,43 +267,66 @@ const cars = [
       </div>
     </div>
     
-    <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
       {cars.map((car, index) => (
         <div
-          class="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer"
-          style={`animation: fadeInUp 0.6s ease-out ${index * 0.1}s backwards; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);`}
+          class="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-md hover:shadow-2xl hover:border-gray-200 transition-all duration-500 cursor-pointer flex flex-col"
+          style={`animation: fadeInUp 0.6s ease-out ${index * 0.1}s backwards;`}
           data-car={JSON.stringify(car)}
           onclick="openModalFromCard(this)"
         >
-          <div class="relative overflow-hidden">
-            <div class="absolute top-4 left-4 flex gap-2 z-10">
-              <span class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold text-gray-900">
+          <div class="relative overflow-hidden w-full aspect-[16/10] flex-shrink-0">
+            <!-- Shine effect -->
+            <div class="absolute inset-0 z-20 w-[200%] h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out pointer-events-none"></div>
+            
+            <div class="absolute top-5 left-5 flex gap-2 z-10">
+              <span class="bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-gray-900 outline outline-1 outline-gray-200 shadow-sm">
                 {car.type}
               </span>
-              <span class="bg-red-600 px-3 py-1 rounded-full text-xs font-semibold text-white">
+              <span class="bg-gradient-to-r from-red-600 to-red-700 px-4 py-1.5 rounded-full text-xs font-bold text-white shadow-lg shadow-red-600/20">
                 {car.year}
               </span>
             </div>
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-[5]"></div>
+            
             <img
               src={car.image}
               alt={car.name}
-              class="w-full aspect-[16/10] object-cover transform group-hover:scale-105 transition-transform duration-700"
+              class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
             />
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-              <span class="opacity-0 group-hover:opacity-100 bg-white text-gray-900 px-6 py-3 rounded-full font-semibold text-sm transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
-                Ver Detalles →
+            
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 z-10 flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 bg-white/10 backdrop-blur-md text-white border border-white/20 px-6 py-3 rounded-full font-semibold text-sm transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl flex items-center gap-2">
+                Explorar Vehículo <Icon name="lucide:arrow-right" class="w-4 h-4" />
               </span>
             </div>
           </div>
           
-          <div class="p-6">
-            <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">{car.name}</h3>
-            <p class="text-sm text-gray-600 mb-4">{car.specs}</p>
+          <div class="p-6 md:p-8 flex flex-col justify-between relative z-20 flex-1">
+            <div>
+              <h3 class="font-serif font-bold text-gray-900 mb-4 group-hover:text-red-600 transition-colors text-2xl">
+                {car.name}
+              </h3>
+              
+              <!-- Specs Grid -->
+              <div class="grid grid-cols-3 gap-3 mb-6">
+                {car.specs.map(spec => (
+                  <div class="bg-gray-50 rounded-xl p-3 border border-gray-100 flex flex-col items-center justify-center gap-2">
+                    <Icon name={spec.icon} class="w-5 h-5 text-gray-400 group-hover:text-red-500 transition-colors" />
+                    <span class="text-xs font-medium text-gray-600 text-center">{spec.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
             
-            <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-              <span class="text-red-600 font-bold">{car.price}</span>
-              <button class="bg-gray-900 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-red-600 transition-colors duration-300" onclick="event.stopPropagation(); openModalFromCard(this.closest('[data-car]'))">
-                Ver Detalles
+            <div class="flex justify-between items-center pt-6 border-t border-gray-100 mt-auto">
+              <div>
+                <span class="text-xs text-gray-500 uppercase tracking-wider font-semibold block mb-1">Precio Base</span>
+                <span class="text-xl font-bold text-gray-900">{car.price}</span>
+              </div>
+              <button class="w-12 h-12 rounded-full bg-white border border-gray-200 text-gray-400 flex items-center justify-center hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300 shadow-sm hover:shadow-lg" onclick="event.stopPropagation(); openModalFromCard(this.closest('[data-car]'))" title="Ver Detalles">
+                 <Icon name="lucide:arrow-right" class="w-5 h-5" />
               </button>
             </div>
           </div>
@@ -307,7 +370,7 @@ const cars = [
         const filter = btn.getAttribute('data-filter');
 
         // Update active state
-        filterBtns.forEach(b => b.classList.remove('bg-red-600', 'text-white', 'border-red-600'));
+        filterBtns.forEach(b => b.classList.remove('bg-red-600', 'text-white', 'border-red-600', 'bg-white', 'text-gray-600', 'border-gray-200'));
         btn.classList.add('bg-red-600', 'text-white', 'border-red-600');
 
         cards.forEach(card => {

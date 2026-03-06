@@ -30,15 +30,15 @@ const news = [
 ];
 ---
 
-<section id="noticias" class="py-28 bg-gray-50 w-full">
+<section id="noticias" class="py-28 bg-gray-50 w-full border-t border-gray-100">
   <div class="w-full px-6 lg:px-12 xl:px-24">
 
     {/* Header */}
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-20">
       <div>
-        <p class="text-red-600 text-xs font-bold uppercase tracking-[0.25em] mb-3">— Últimas novedades</p>
+        <p class="text-red-500 text-xs font-bold uppercase tracking-[0.25em] mb-3">— Últimas novedades</p>
         <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-none">
-          ÚLTIMAS <span class="text-red-600">NOTICIAS</span>
+          ÚLTIMAS <span class="text-red-500">NOTICIAS</span>
         </h2>
       </div>
       <p class="text-gray-500 text-sm max-w-xs leading-relaxed sm:text-right">
@@ -49,7 +49,7 @@ const news = [
     {/* Articles */}
     <div class="space-y-6 lg:space-y-8">
       {news.map((item, index) => (
-        <article class={`news-card group flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500`} style={`--i:${index}`}>
+        <article class={`news-card group flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 hover:border-gray-200`} style={`--i:${index}`}>
 
           {/* Imagen */}
           <div class="lg:w-[50%] overflow-hidden relative">
@@ -60,35 +60,37 @@ const news = [
               loading="lazy"
             />
             {/* Category pill encima de la imagen */}
-            <span class="absolute top-6 left-6 inline-flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur-md text-white text-xs font-bold uppercase tracking-widest rounded-full border border-white/10">
-              <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+            <span class="absolute top-6 left-6 inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-md text-gray-900 text-xs font-bold uppercase tracking-widest rounded-full border border-gray-200 shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]"></span>
               {item.category}
             </span>
           </div>
 
           {/* Contenido */}
-          <div class="lg:w-[50%] flex flex-col justify-center p-8 lg:p-14">
-            <div class="mb-6 flex items-center justify-between">
-               <span class="text-red-600 font-bold text-xs uppercase tracking-[0.2em]">{item.date}</span>
-               <span class="font-serif text-5xl font-black text-gray-50 select-none group-hover:text-red-50 transition-colors">0{index + 1}</span>
+          <div class="lg:w-[50%] flex flex-col justify-center p-8 lg:p-14 relative overflow-hidden">
+            <div class="mb-6 flex items-center justify-between z-10">
+               <span class="text-red-500 font-bold text-xs uppercase tracking-[0.2em]">{item.date}</span>
+               <span class="font-serif text-5xl font-black text-gray-200 select-none group-hover:text-gray-300 transition-colors">0{index + 1}</span>
             </div>
 
-            <h3 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 leading-tight mb-6 group-hover:text-red-600 transition-colors duration-300">
+            <h3 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 leading-tight mb-6 group-hover:text-red-600 transition-colors duration-300 z-10">
               {item.title}
             </h3>
-            <p class="text-gray-500 leading-relaxed text-sm lg:text-base mb-8 line-clamp-3 lg:line-clamp-none">
+            <p class="text-gray-600 leading-relaxed text-sm lg:text-base mb-8 line-clamp-3 lg:line-clamp-none z-10">
               {item.excerpt}
             </p>
 
-            <div class="flex items-center gap-4 mt-auto pt-6 border-t border-gray-100">
-              <div class="w-12 h-12 rounded-full bg-gray-900 flex items-center justify-center text-white text-sm font-bold shadow-lg">
+            <div class="flex items-center gap-4 mt-auto pt-6 border-t border-gray-100 z-10">
+              <div class="w-12 h-12 rounded-full bg-gray-900 flex items-center justify-center text-white border border-gray-900 text-sm font-bold shadow-sm">
                 {item.author.split(' ').map((n: string) => n[0]).join('').slice(0, 2)}
               </div>
               <div>
                 <p class="font-bold text-gray-900 text-sm">{item.author}</p>
-                <p class="text-xs text-gray-400">{item.role}</p>
+                <p class="text-xs text-gray-500">{item.role}</p>
               </div>
             </div>
+            
+            <div class="absolute bottom-0 left-0 w-0 h-[3px] bg-gradient-to-r from-red-600 to-red-800 group-hover:w-full transition-all duration-700 ease-out z-20"></div>
           </div>
         </article>
       ))}
